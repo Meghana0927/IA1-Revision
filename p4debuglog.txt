@@ -1,0 +1,125 @@
+gcc -g p4final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8d9: file p4final.c, line 29.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p4final.c:29
+29  {
+(gdb) n
+30    int n, sum=0;
+(gdb) n
+31    printf("Enter the array size\n");
+(gdb) n
+Enter the array size
+32    n=input_array_size();
+(gdb) s
+input_array_size () at p4final.c:3
+3   {
+(gdb) n
+5     scanf("%d",&a);
+(gdb) n
+3
+6     return a;
+(gdb) n
+7   }
+(gdb) n
+main () at p4final.c:33
+33    int a[n];
+(gdb) n
+34    printf("Enter the numbers\n");
+(gdb) n
+Enter the numbers
+35    input_array(n,a);
+(gdb) s
+input_array (n=3, a=0x7ffe8b905730) at p4final.c:11
+11    for (i=0;i<n;i++)
+(gdb) n
+12    scanf("%d",&a[i]);
+(gdb) n
+1
+11    for (i=0;i<n;i++)
+(gdb) n
+12    scanf("%d",&a[i]);
+(gdb) n
+7
+11    for (i=0;i<n;i++)
+(gdb) n
+12    scanf("%d",&a[i]);
+(gdb) n
+11
+11    for (i=0;i<n;i++)
+(gdb) n
+13  }
+(gdb) n
+main () at p4final.c:36
+36    sum=sum_n_arrays(n,a);
+(gdb) s
+sum_n_arrays (n=3, a=0x7ffe8b905730) at p4final.c:16
+16    int j, sum=0;
+(gdb) n
+17    for (j=0;j<n;j++)
+(gdb) n
+18    sum+=a[j];
+(gdb) n
+17    for (j=0;j<n;j++)
+(gdb) n
+18    sum+=a[j];
+(gdb) n
+17    for (j=0;j<n;j++)
+(gdb) n
+18    sum+=a[j];
+(gdb) n
+17    for (j=0;j<n;j++)
+(gdb) n
+19    return sum;
+(gdb) p sum
+$1 = 19
+(gdb) n
+20  }
+(gdb) n
+main () at p4final.c:37
+37    out_put(n,a,sum);
+(gdb) s
+out_put (n=3, a=0x7ffe8b905730, sum=19) at p4final.c:24
+24    for (k=0;k<n-1;k++)
+(gdb) n
+25    printf("%d+",a[k]);
+(gdb) n
+24    for (k=0;k<n-1;k++)
+(gdb) n
+25    printf("%d+",a[k]);
+(gdb) n
+24    for (k=0;k<n-1;k++)
+(gdb) n
+26    printf("%d is %d\n",a[n-1],sum);
+(gdb) n
+1+7+11 is 19
+27  }
+(gdb) n
+main () at p4final.c:38
+38  }(gdb) n
+__libc_start_main (main=0x55da3a4008c8 <main>, argc=1, argv=0x7ffe8b905878, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffe8b905868) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+[Inferior 1 (process 286) exited normally]
+(gdb) q

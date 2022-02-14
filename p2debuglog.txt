@@ -1,0 +1,95 @@
+gcc -g p2final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x827: file p2final.c, line 25.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p2final.c:25
+25    printf("Enter the numbers\n");
+(gdb) n
+Enter the numbers
+26    a=input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5     scanf("%d",&i);
+(gdb) n
+3
+6     return i;
+(gdb) n
+7   }
+(gdb) n
+main () at p2final.c:27
+27    b=input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5     scanf("%d",&i);
+(gdb) n
+4
+6     return i;
+(gdb) n
+7   }
+(gdb) n
+main () at p2final.c:28
+28    c=input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5     scanf("%d",&i);
+(gdb) n
+2
+6     return i;
+(gdb) n
+7   }
+(gdb) n
+main () at p2final.c:29
+29    largest=cmp(a,b,c);
+(gdb) s
+cmp (a=3, b=4, c=2) at p2final.c:10
+10    if (a>b&&a>c)
+(gdb) n
+13    if (b>c)
+(gdb) n
+14    return b;
+(gdb) n
+17  }
+(gdb) n
+main () at p2final.c:30
+30    output(a,b,c,largest);
+(gdb) s
+output (a=3, b=4, c=2, largest=4) at p2final.c:20
+20    printf("Largest of %d, %d, %d is %d \n",a,b,c,largest);
+(gdb) n
+Largest of 3, 4, 2 is 4 
+21  }
+(gdb) n
+main () at p2final.c:31
+31  }(gdb) n
+__libc_start_main (main=0x560dba00081f <main>, argc=1, argv=0x7ffd86051c38, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffd86051c28) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+[Inferior 1 (process 377) exited normally]
+(gdb) q
